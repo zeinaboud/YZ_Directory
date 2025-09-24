@@ -1,0 +1,65 @@
+@import "tailwindcss";
+/* app/globals.css */
+
+@theme {
+    --color-primary-500: oklch(65.6% 0.241 354.308);
+
+    --color-second-300: oklch(81% 0.117 11.638);
+    
+}
+:root {
+    --font-Work-sans: 'Work Sans', sans-serif;
+}
+
+@layer base{
+  ul {
+    @apply list-none ;
+  }
+  body {
+  font-family: var(--font-Work-sans);
+}
+  h2{
+    @apply text-2xl my-4 font-bold mx-3
+  }
+
+}
+@layer utilities{
+  .search-form{
+    @apply max-w-3xl mx-auto w-full  bg-white h-13  border-2 rounded-3xl border-black text-center flex justify-between  px-2
+  }
+  .search-input{
+    @apply w-full placeholder:text-xl focus:border-none focus:outline-none pl-2
+  }
+  .search-btn{
+    @apply bg-black rounded-full text-white  flex justify-center items-center size-[40px] ;
+  }
+  .grid{
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5
+  }
+  .container-pink{
+    @apply bg-primary-500 
+  }
+  
+   .pattern {
+        background-image: linear-gradient(
+                to right,
+                transparent 49.5%,
+                rgba(251, 232, 67, 0.2) 49.5%,
+                rgba(251, 232, 67, 0.6) 50.5%,
+                transparent 50.5%
+        );
+        background-size: 5% 100%;
+        background-position: center;
+        background-repeat: repeat-x;
+    }
+
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+

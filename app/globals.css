@@ -2,13 +2,17 @@
 /* app/globals.css */
 
 @theme {
-    --color-primary-500: oklch(65.6% 0.241 354.308);
+    --color-primary-500:#EA580C;
 
-    --color-second-300: oklch(81% 0.117 11.638);
+    --color-second-300: #84CC16;
+
+    --color-outlinecolor:#FB923C;
+    --color-borderColor:#3F3F46;
     
 }
 :root {
     --font-Work-sans: 'Work Sans', sans-serif;
+    --after-y: 0px;
 }
 
 @layer base{
@@ -24,8 +28,13 @@
 
 }
 @layer utilities{
+    
+
+  .main{
+    @apply bg-[url('/assets/main.jfif')] bg-cover z-1
+  }
   .search-form{
-    @apply max-w-3xl mx-auto w-full  bg-white h-13  border-2 rounded-3xl border-black text-center flex justify-between  px-2
+    @apply max-w-3xl mx-auto w-full  bg-white h-13  border-2 rounded-3xl border-[#3F3F46] outline-1 outline-outlinecolor text-center flex justify-between  px-2
   }
   .search-input{
     @apply w-full placeholder:text-xl focus:border-none focus:outline-none pl-2
@@ -40,7 +49,7 @@
     @apply bg-primary-500 
   }
   
-   .pattern {
+  .pattern {
         background-image: linear-gradient(
                 to right,
                 transparent 49.5%,

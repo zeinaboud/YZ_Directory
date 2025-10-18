@@ -2,7 +2,9 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { auth, signIn, signOut } from '@/auth';
-
+import { MdLogout } from "react-icons/md";
+import { MdAddTask } from "react-icons/md";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 const Navbar =async () =>
 {
   const session = await auth();
@@ -25,7 +27,8 @@ const Navbar =async () =>
             {session && session?.user ? (
               <>
                 <Link href="/startup/create">
-                  <span>Create</span>
+                  <span className='max-sm:hidden'>Create</span>
+                  <MdAddTask className='size-6 sm:hidden text-red-500'/>
                 </Link>
                 <form action={async () =>
                 {
@@ -33,11 +36,21 @@ const Navbar =async () =>
                   await signOut({redirectTo : "/"});
                   }}
                 >
-                  <button type='submit'>logOut</button>
+                  <button type='submit' className='flex items-center gap-1' >
+                    <span className='max-sm:hidden'> logout</span>
+                    <MdLogout className='size-6 text-red-500 sm:hidden'/>
+                  </button>
                 </form>
 
                 <Link href={`/user/${session?.user.id}`}>
-                  <span>{ session?.user.name}</span>
+                  <Avatar>
+                    <AvatarImage
+                      src={session?.user?.image || ''}
+                      alt={session?.user?.name || ''}
+                    />
+                    <AvatarFallback>AV</AvatarFallback>
+                  </Avatar>
+                  
                 </Link>
               </>
           ) :  (

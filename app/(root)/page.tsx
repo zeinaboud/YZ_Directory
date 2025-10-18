@@ -1,4 +1,5 @@
 import Cardstartup , {CardstartupType} from "@/components/Cardstartup";
+import Designlayout from "@/components/Designlayout";
 import Navbar from "@/components/Navbar";
 import Searchform from "@/components/Searchform";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
@@ -19,26 +20,18 @@ export default async function  Home({ searchParams, }: {
 
   console.log(posts);
 
+ 
   return (
     <>
-      <section>
+      <section className=" w-full bg-primary h-[450px] pattern flex justify-center items-center flex-col  ">
         <div
-          className=" bg-primary-500  h-screen w-full  "
+          className="pattern  bg-primary-500  h-screen w-full relative "
         >
-          <h1
-          className="uppercase text-3xl md:text-4xl leading-10 md:leading-12 bold text-center text-white bg-black max-w-3xl mx-auto h-fit px-2 md:px-4  py-2 md:py-4 "
-          >
-            pitch your startup,<br />
-            connect with entrepreneurs
-          </h1>
-          <p
-          className="text-white my-4 text-center"
-          >
-            Submit ideas vote on Pitches and Get Noticed in Virtual competitiond
-          </p>
-          <Searchform query={query} />
-          
-          <section>
+          <Designlayout/>
+          <Searchform query={query} /> 
+        </div>
+        </section>
+         <section>
             <div className="max-w-7xl px-auto px-2 md:px-4 lg:px-6">
               <h2>
                 {query ? `Search results for ${query}` : 'All Startup'}
@@ -55,8 +48,6 @@ export default async function  Home({ searchParams, }: {
               </ul>
             </div>
           </section>
-        </div>
-      </section>
       <SanityLive />
     </>
   );

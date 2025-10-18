@@ -22,7 +22,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           _type: "author",
           name: user?.name || profile?.login,
           email: user?.email,
-          id: profile?.id,
+          githubId: profile?.id,
           username: profile?.login,
           image: user?.image,
         });
@@ -42,7 +42,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return token;
     },
     async session({ session, token }) {
-      Object.assign(session, { id: token.id });
+      if (session.user && token.id) {
+        session.user.id = token.id as string; 
+      }
       return session;
     },
   },

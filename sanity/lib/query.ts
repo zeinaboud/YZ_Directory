@@ -3,17 +3,17 @@ import { startup } from '../schemaTypes/startup';
 import { author } from '../schemaTypes/author';
 
 export const startup_query = defineQuery(`* [_type == 'startup' 
-    && defined(slug.current) 
+    && defined(slug.current)
     &&  !defined($search)
-    || title match $search 
+    || title match $search
     ||category match $search
-    || author-> name match $search] 
+    || author-> name match $search]
     | order(_createAT desc){
         _id,
         title,
         slug,
         _createdAt,
-        author => {
+        author -> {
         _id , name , image , bio , username
         },
         views,
@@ -56,3 +56,29 @@ export const author_by_github_id_query = defineQuery(`
         bio
     }
     `)
+export const author_by_id_query = defineQuery(`
+    *[_type == "author" && _id ==$id][0]{
+        _id,
+        id,
+        name,
+        username,
+        email,
+        image,
+        bio
+    }
+    `)
+export const startup_by_author_query= defineQuery(`* [_type == 'startup' && author._ref == $id ]|order(_createdAt desc)
+    {
+        _id,
+        title,
+        slug,
+        _createdAt,
+        author => {
+        _id , name , image , bio , username
+        },
+        views,
+        description,
+        category,
+        image,
+        pitch
+}`);

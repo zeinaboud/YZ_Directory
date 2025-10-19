@@ -3,7 +3,6 @@ import { client } from '@/sanity/lib/client';
 import { startup_by_id_query } from '@/sanity/lib/query';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import View from '@/components/view';
 import Image from 'next/image';
 import markdownit from 'markdown-it';
 import { Skeleton } from "@/components/ui/skeleton"

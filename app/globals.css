@@ -37,7 +37,7 @@
     @apply max-w-3xl mx-auto w-full  bg-white h-13  border-2 rounded-3xl border-[#3F3F46] outline-1 outline-outlinecolor text-center flex justify-between  px-2
   }
   .search-input{
-    @apply w-full placeholder:text-xl focus:border-none focus:outline-none pl-2
+    @apply w-full placeholder:text-xl placeholder:pl-2 focus:border-none focus:outline-none pl-2 focus:bg-white focus:ml-2
   }
   .search-btn{
     @apply bg-black rounded-full text-white  flex justify-center items-center size-[40px] ;

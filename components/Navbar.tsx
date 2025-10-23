@@ -28,7 +28,7 @@ const Navbar =async () =>
               <>
                 <Link href="/startup/create">
                   <span className='max-sm:hidden'>Create</span>
-                  <MdAddTask className='size-6 sm:hidden text-red-500'/>
+                  <MdAddTask className='size-6 sm:hidden text-primary-500'/>
                 </Link>
                 <form action={async () =>
                 {
@@ -38,7 +38,7 @@ const Navbar =async () =>
                 >
                   <button type='submit' className='flex items-center gap-1' >
                     <span className='max-sm:hidden'> logout</span>
-                    <MdLogout className='size-6 text-red-500 sm:hidden'/>
+                    <MdLogout className='size-6 text-primary-500 sm:hidden'/>
                   </button>
                 </form>
 

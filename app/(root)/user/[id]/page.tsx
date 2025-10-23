@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Startup } from '../../../../src/sanity/types';
 import UserStartup from '@/components/UserStartup';
-import { StartupCardSkeleton, startupCardSkelton } from '../../../../components/Cardstartup';
+import { StartupCardSkeleton } from '../../../../components/Cardstartup';
 const page = async ({ params }: { params: Promise<{ id: string }>}) =>
 {
     const id = (await params).id;

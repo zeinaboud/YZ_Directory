@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { client } from '@/sanity/lib/client';
 import { startup_by_id_query } from '@/sanity/lib/query';
+import View from '@/components/View';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';

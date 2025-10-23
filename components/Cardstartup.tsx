@@ -33,13 +33,17 @@ const Cardstartup = ({ _id, description, author, image, _createdAt, views, title
                     </Link>
                 </div>
                 <div className='pt-2'>
-                    <Image
-                        src={author?.image || null}
+                     {author?.image ? (
+                        <Image
+                        src={author.image}
                         alt={author?.name || "Author image"}
                         width={50}
                         height={50}
-                        className='rounded-full'
-                    />
+                        className="rounded-full"
+                        />
+                    ) : (
+                        <div className="w-[50px] h-[50px] rounded-full bg-gray-500" />
+                    )}
                 </div>
             </div>
             <Link href={`startup/${_id}`}>

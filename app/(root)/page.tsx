@@ -4,7 +4,8 @@ import Navbar from "@/components/Navbar";
 import Searchform from "@/components/Searchform";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { startup_query } from "@/sanity/lib/query";
-
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 export default async function  Home({ searchParams, }: {
   searchParams : Promise<{query?:string}>
 })
